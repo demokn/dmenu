@@ -51,7 +51,7 @@ index 1edb647..298e91a 100644
 +	{ "prompt",      STRING, &prompt },
 +};
 diff --git a/dmenu.c b/dmenu.c
-index 65f25ce..e26fc9c 100644
+index 7cf253b..010e288 100644
 --- a/dmenu.c
 +++ b/dmenu.c
 @@ -11,6 +11,7 @@
@@ -84,16 +84,7 @@ index 65f25ce..e26fc9c 100644
  #include "config.h"
  
  static int (*fstrncmp)(const char *, const char *, size_t) = strncmp;
-@@ -395,7 +411,7 @@ keypress(XKeyEvent *ev)
- 
- 	switch(ksym) {
- 	default:
--insert:
-+	insert:
- 		if (!iscntrl(*buf))
- 			insert(buf, len);
- 		break;
-@@ -547,6 +563,54 @@ readstdin(void)
+@@ -568,6 +584,54 @@ readstdin(void)
  	lines = MIN(lines, i);
  }
  
@@ -148,7 +139,7 @@ index 65f25ce..e26fc9c 100644
  static void
  run(void)
  {
-@@ -700,6 +764,9 @@ main(int argc, char *argv[])
+@@ -720,6 +784,9 @@ main(int argc, char *argv[])
  	XWindowAttributes wa;
  	int i, fast = 0;
  
@@ -159,10 +150,10 @@ index 65f25ce..e26fc9c 100644
  		/* these options take no arguments */
  		if (!strcmp(argv[i], "-v")) {      /* prints version information */
 diff --git a/drw.c b/drw.c
-index 4cdbcbe..8f1059e 100644
+index a58a2b4..f8a82f5 100644
 --- a/drw.c
 +++ b/drw.c
-@@ -208,7 +208,7 @@ drw_clr_create(Drw *drw, Clr *dest, const char *clrname)
+@@ -195,7 +195,7 @@ drw_clr_create(Drw *drw, Clr *dest, const char *clrname)
  /* Wrapper to create color schemes. The caller has to call free(3) on the
   * returned color scheme when done using it. */
  Clr *
@@ -172,10 +163,10 @@ index 4cdbcbe..8f1059e 100644
  	size_t i;
  	Clr *ret;
 diff --git a/drw.h b/drw.h
-index 4c67419..9c2c8ea 100644
+index fd7631b..0d91aad 100644
 --- a/drw.h
 +++ b/drw.h
-@@ -39,7 +39,7 @@ void drw_font_getexts(Fnt *font, const char *text, unsigned int len, unsigned in
+@@ -40,7 +40,7 @@ void drw_font_getexts(Fnt *font, const char *text, unsigned int len, unsigned in
  
  /* Colorscheme abstraction */
  void drw_clr_create(Drw *drw, Clr *dest, const char *clrname);

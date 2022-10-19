@@ -22,7 +22,7 @@ index 762f707..4c87074 100644
  dmenu lists items vertically, with the given number of lines.
  .TP
 diff --git a/dmenu.c b/dmenu.c
-index 94783fe..8367325 100644
+index bf57ada..322d20a 100644
 --- a/dmenu.c
 +++ b/dmenu.c
 @@ -40,6 +40,7 @@ static char *embed;
@@ -33,7 +33,7 @@ index 94783fe..8367325 100644
  static size_t cursor;
  static struct item *items = NULL;
  static struct item *matches, *matchend;
-@@ -291,12 +292,26 @@ insert(const char *str, ssize_t n)
+@@ -308,12 +309,26 @@ insert(const char *str, ssize_t n)
  {
  	if (strlen(text) + n > sizeof text - 1)
  		return;
@@ -60,16 +60,16 @@ index 94783fe..8367325 100644
  }
  
  static size_t
-@@ -881,7 +896,7 @@ setup(void)
+@@ -901,7 +916,7 @@ setup(void)
  static void
  usage(void)
  {
--	fputs("usage: dmenu [-bfivP] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
-+	fputs("usage: dmenu [-bfirvP] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
- 	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
- 	exit(1);
+-	die("usage: dmenu [-bfivP] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
++	die("usage: dmenu [-bfirvP] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
+ 	    "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]");
  }
-@@ -909,6 +924,8 @@ main(int argc, char *argv[])
+ 
+@@ -928,6 +943,8 @@ main(int argc, char *argv[])
  			fstrstr = cistrstr;
  		} else if (!strcmp(argv[i], "-P"))   /* is the input a password */
  			passwd = 1;
